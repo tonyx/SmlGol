@@ -2,22 +2,25 @@ datatype CellState = Dead | Alive;
 
 type Cell = int * int * CellState;
 
-fun areneighbors ((x1,y1,_): Cell, (x2,y2,_): Cell) = 
-  Int.abs(x1-x2)<=1 andalso Int.abs(y1-y2) <= 1 andalso  (not  (x1 = x2) orelse not (y1 = y2)) ;
+fun same_position ((x1,y1),(x2,y2)) =
+   x1 = x2 andalso y1 = y2
 
-fun neighbors (X:Cell,Y: Cell list): Cell list = 
+fun areneighbors ((x1,y1,_): Cell, (x2,y2,_): Cell) = 
+  Int.abs(x1-x2)<=1 andalso Int.abs(y1-y2) <= 1 andalso  not (same_position ((x1,y1),(x2,y2)));
+
+fun neighbors (cell:Cell, grid: Cell list): Cell list = 
 let
   fun neighbors_iter(cell_list, accumul): Cell list =  
     case cell_list of
-         H::T => if areneighbors(X,H) then neighbors_iter(T, H::accumul) else neighbors_iter(T,accumul)
+         H::T => if areneighbors(cell,H) then neighbors_iter(T, H::accumul) else neighbors_iter(T,accumul)
        | [] => accumul
 in
-  neighbors_iter(Y,[])
+  neighbors_iter(grid,[])
 end
 
-fun neighbors_alive (X,Y) = List.filter (fn (_,_,s) => s=Alive) (neighbors (X,Y));
+fun neighbors_alive (cell,grid) = List.filter (fn (_,_,s) => s=Alive) (neighbors (cell,grid));
 
-fun number_neighbors_alive (X,Y)  =  List.length (neighbors_alive (X,Y));
+fun number_neighbors_alive (cell,grid)  =  List.length (neighbors_alive (cell,grid));
 
 
 fun next_generation (grid) = 
