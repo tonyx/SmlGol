@@ -1,7 +1,5 @@
 
 val myCell: Cell = (1,2,Alive); 
-val neighbors_test = areneighbors ((0,0,Alive),(0,1,Alive));
-val not_neighbors_test = areneighbors((0,0,Alive),(2,4,Alive)) = false;
 
 val set_of_neighbors_of_a_cell_against_an_empty_grid_is_empty = neighbors (myCell,[]) = [];
 val set_of_neighbors_of_a_cell_against_a_grid_with_only_one_neighbors = neighbors ((1,2,Alive),[(1,1,Alive)]) = [(1,1,Alive)];
