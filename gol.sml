@@ -22,8 +22,8 @@ fun number_neighbors_alive (cell,grid)  =  List.length (neighbors_alive (cell,gr
 
 fun next_generation (grid) = 
 let
-  fun next_gen_iter (the_list,accumul) = 
-    case the_list of
+  fun next_gen_iter (cell_list,accumul) = 
+    case cell_list of
          (x,y,Alive)::T => ( case number_neighbors_alive ((x,y,Alive),grid) of
                                2 => next_gen_iter(T,accumul@[(x,y,Alive)])
                              |3 =>  next_gen_iter(T,accumul@[(x,y,Alive)])
