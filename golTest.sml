@@ -19,4 +19,19 @@ val next_from_column = next_generation (column) =
               (1,0,Alive),(1,1,Alive),(1,2,Alive),
               (2,0,Dead),(2,1,Dead),(2,2,Dead)];
 
+val testdata2 = 
+  [(0,0,Dead), (0,1,Dead), (0,2,Dead),  (0,3,Dead),  (0,4,Dead),
+  (1,0,Dead) , (1,1,Alive), (1,2,Alive), (1,3,Alive), (1,4,Dead),
+  (2,0,Dead) , (2,1,Dead),  (2,2,Alive), (2,3,Alive), (2,4,Dead),
+  (3,0,Dead) , (3,1,Alive), (3,3,Dead),  (3,3,Alive), (3,4,Dead),
+  (4,0,Dead) , (4,1,Dead),  (4,2,Dead),  (4,3,Dead),  (4,4,Dead)];
+
+val next_from_testdata2 = next_generation (testdata2) =
+  [(0,0,Dead), (0,1,Dead),  (0,2,Alive),  (0,3,Dead),  (0,4,Dead),
+  (1,0,Dead) , (1,1,Alive),  (1,2,Dead),  (1,3,Alive), (1,4,Dead),
+  (2,0,Dead) , (2,1,Dead),   (2,2,Dead),  (2,3,Dead),  (2,4,Alive),
+  (3,0,Dead) , (3,1,Dead),   (3,3,Dead),  (3,3,Alive), (3,4,Dead),
+  (4,0,Dead) , (4,1,Dead),   (4,2,Dead),  (4,3,Dead),  (4,4,Dead)];
+
+
 
