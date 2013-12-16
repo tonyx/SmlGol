@@ -1,5 +1,4 @@
 
-
 val set_of_neighbors_of_a_cell_against_an_empty_grid_is_empty = neighbors ((1,2,Alive),[]) = [];
 val set_of_neighbors_of_a_cell_against_a_grid_with_only_one_neighbors = neighbors ((1,2,Alive),[(1,1,Alive)]) = [(1,1,Alive)];
 val test_one_neighbor_and_one_not = neighbors ((0,0,Alive),[(0,1,Alive),(10,11,Alive)]) = [(0,1,Alive)];
@@ -32,6 +31,4 @@ val next_from_testdata2 = next_generation (testdata2) =
   (2,0,Dead) , (2,1,Dead),   (2,2,Dead),  (2,3,Dead),  (2,4,Alive),
   (3,0,Dead) , (3,1,Dead),   (3,3,Dead),  (3,3,Alive), (3,4,Dead),
   (4,0,Dead) , (4,1,Dead),   (4,2,Dead),  (4,3,Dead),  (4,4,Dead)];
-
-
 
