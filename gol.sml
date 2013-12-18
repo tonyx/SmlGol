@@ -2,13 +2,13 @@ datatype CellState = Dead | Alive;
 
 type Cell = int * int * CellState;
 
-fun neighbors (cell:Cell, grid: Cell list): Cell list = 
+fun neighbors (cell, grid) = 
 let
   fun same_position ((x1,y1),(x2,y2)) =
     x1 = x2 andalso y1 = y2
-  fun areneighbors ((x1,y1,_): Cell, (x2,y2,_): Cell): bool = 
+  fun areneighbors ((x1,y1,_), (x2,y2,_))  = 
     Int.abs(x1-x2)<=1 andalso Int.abs(y1-y2) <= 1 andalso  not (same_position ((x1,y1),(x2,y2)))
-  fun neighbors_iter(cell_list, accumul): Cell list =  
+  fun neighbors_iter(cell_list, accumul) =  
     case cell_list of
          H::T => if areneighbors(cell,H) then neighbors_iter(T, H::accumul) else neighbors_iter(T,accumul)
        | [] => accumul
