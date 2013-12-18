@@ -6,6 +6,6 @@ To evaluate them is sufficient to run from the shell (in any Unix shell)):
 
 	(can also be mapped in vi to simulate unit test environment)
 
-	I used Standard ML of New Jersey. It has been Tested also with Moscow ML (needs "mosml -P full" instead of sml" command)
+	Developed with Standard ML of New Jersey. It has been Tested also with Moscow ML (needs "mosml -P full" instead of sml" command)
 
 
