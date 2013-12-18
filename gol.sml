@@ -25,8 +25,7 @@ let
   fun next_gen_iter (cell_list,accumul) = 
     case cell_list of
          (x,y,Alive)::T => ( case number_neighbors_alive ((x,y,Alive),grid) of
-                               2 => next_gen_iter(T,accumul@[(x,y,Alive)])
-                             |3 =>  next_gen_iter(T,accumul@[(x,y,Alive)])
+                               (2|3) => next_gen_iter(T,accumul@[(x,y,Alive)])
                              |_ => next_gen_iter(T,accumul@[(x,y,Dead)])
                              )
 
